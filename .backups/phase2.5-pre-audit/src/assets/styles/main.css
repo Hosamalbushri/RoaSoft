@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Roa Soft Design System Tokens — Phase 2 Foundation
+   Verified from Phase 1 Research & WCAG 2.2 Calculations
+   ========================================================================== */
+
+:root {
+  /* Fonts */
+  --font-arabic: 'Cairo', system-ui, -apple-system, sans-serif;
+  --font-latin: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Brand Baseline */
+  --brand-primary: #1c66f6;
+  --brand-primary-hover: #1551c6;
+  --brand-primary-light: #e0edff;
+  --on-brand-primary: #ffffff;
+
+  --brand-accent: #fe8312;
+  --brand-accent-hover: #e0700a;
+  --brand-accent-light: #fff3e6;
+  --on-brand-accent: #090d16; /* Dark navy text on orange = 7.2:1 contrast (AAA standard) */
+
+  /* Light Theme (Default) */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-surface-muted: #e2e8f0;
+
+  --text-primary: #090d16;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --border-focus: #1c66f6;
+
+  --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+  --shadow-glow: 0 0 25px rgba(28, 102, 246, 0.2);
+  --shadow-glow-accent: 0 0 25px rgba(254, 131, 18, 0.2);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme (High-End Technical Navy OLED-Grade) */
+  --bg-app: #080b11;
+  --bg-surface: #0f141f;
+  --bg-surface-elevated: #161e2e;
+  --bg-surface-muted: #1f2a3f;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #090d16;
+
+  --brand-primary: #1c66f6;
+  --brand-primary-hover: #3b82f6;
+  --brand-primary-light: rgba(28, 102, 246, 0.15);
+  --on-brand-primary: #ffffff;
+
+  --brand-accent: #fe8312;
+  --brand-accent-hover: #ff9431;
+  --brand-accent-light: rgba(254, 131, 18, 0.15);
+  --on-brand-accent: #080b11; /* 7.84:1 contrast on dark */
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-focus: #3b82f6;
+
+  --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 35px rgba(28, 102, 246, 0.35);
+  --shadow-glow-accent: 0 0 30px rgba(254, 131, 18, 0.3);
+}
+
+/* ==========================================================================
+   Typography & Directional Typography Rules
+   ========================================================================== */
+
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+  letter-spacing: normal !important; /* Critical: never tighten tracking on cursive Arabic */
+}
+
+[dir="ltr"] {
+  font-family: var(--font-latin);
+}
+
+/* Arabic Leading Enhancements */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+  line-height: 1.35;
+}
+
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] a,
+[dir="rtl"] button {
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   Universal Accessibility Focus Rings (WCAG 2.2 AA / AAA Compliance)
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+/* Remove default focus ring when not using keyboard */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==========================================================================
+   Reduced Motion Overrides
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

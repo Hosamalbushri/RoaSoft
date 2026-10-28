@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roa Soft | Software Engineering & Digital Systems</title>
+    <meta name="description" content="Roa Soft develops enterprise software, cloud-native architectures, mobile platforms, and AI-driven digital solutions." />
+    
+    <!-- Inline immediate theme and direction hydration to prevent flash of wrong style (FOUC/FOAC) -->
+    <script>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('roa_theme');
+          var theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+          if (theme === 'dark') document.documentElement.classList.add('dark');
+          else document.documentElement.classList.remove('dark');
+          
+          var savedLocale = localStorage.getItem('roa_locale');
+          var locale = savedLocale || (navigator.language && navigator.language.toLowerCase().startsWith('ar') ? 'ar' : 'en');
+          document.documentElement.lang = locale;
+          document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Preconnect to Google Fonts for zero layout shift (FOIT/CLS optimization) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-(--bg-app) text-(--text-primary) antialiased selection:bg-(--brand-primary) selection:text-white transition-colors duration-200">
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
